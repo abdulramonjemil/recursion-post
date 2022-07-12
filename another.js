@@ -86,12 +86,15 @@ function evaluateSumTo(number) {
 
 
 
+
 // function collectNumbers(number) {
 //   if(number === 1) return 1
 //   return [number, collectNumbers(number - 1)]
 // }
 
 // collectNumbers(5)
+
+
 
 
 // Collect all the numbers from 1 to n
