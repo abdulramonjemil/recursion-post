@@ -87,12 +87,12 @@ function evaluateSumTo(number) {
 
 
 
-// function collectNumbers(number) {
-//   if(number === 1) return 1
-//   return (number + " " + collectNumbers(number - 1)).split(" ").map(function (val) return Number(val))
-// }
+function collectNumbers(number, str = "") {
+  if (number === 1) return (str + " " + 1).split(" ").map(function(val) { return Number(val) })
+  return collectNumbers(number - 1, (str ? (str + " ") : str) + number)
+}
 
-// collectNumbers(5)
+console.log(collectNumbers(3))
 
 
 
