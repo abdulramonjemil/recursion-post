@@ -76,7 +76,7 @@ function evaluateSumTo(number) {
 
 
 // function collectSingle() {
-//   return [2, 1]
+//   return (2 + " " + 1).split(" ").map(function (val) return Number(val))
 // }
 
 
@@ -89,7 +89,7 @@ function evaluateSumTo(number) {
 
 // function collectNumbers(number) {
 //   if(number === 1) return 1
-//   return [number, collectNumbers(number - 1)]
+//   return (number + " " + collectNumbers(number - 1)).split(" ").map(function (val) return Number(val))
 // }
 
 // collectNumbers(5)
