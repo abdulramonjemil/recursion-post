@@ -24,7 +24,7 @@ function deriveSolution(target, currentResult = 2, history = 2) {
   return deriveSolution(target, currentResult + 5, `(${history} + 5)`) || deriveSolution(target, currentResult * 3, `(${history} * 3)`)
 }
 
-console.log(deriveSolution(243))
+// console.log(deriveSolution(243))
 
 
 function divideSingle(dividend, divisor) {
@@ -75,24 +75,45 @@ function evaluateSumTo(number) {
 
 
 
-// function collectSingle() {
-//   return (2 + " " + 1).split(" ").map(function (val) return Number(val))
-// }
-
-
-// function collectSingle2() {
-//   return [2].concat[1]
-// }
-
-
-
-
-function collectNumbers(number, str = "") {
-  if (number === 1) return (str + " " + 1).split(" ").map(function(val) { return Number(val) })
-  return collectNumbers(number - 1, (str ? (str + " ") : str) + number)
+function collectSingle() {
+  return (2 + " " + 1).split(" ").map(function (val) { return Number(val) })
 }
 
-console.log(collectNumbers(3))
+function collectSingle3() {
+  return (3 + " " + 2 + " " + 1).split(" ").map(function (val) { return Number(val) })
+}
+
+
+function collectSingle2() {
+  return [2].concat[1]
+}
+
+// function unshift(arr, val) {
+//   arr.unshift(val)
+//   return arr
+// }
+
+function collectNumbers(number) {
+  if(number === 2) return (2 + " " + 1).split(" ").map(function (val) { return Number(val) })
+
+  var arr = collectNumbers(number - 1)
+  arr.unshift(number)
+  return arr
+
+  // return unshift(collectNumbers(number - 1), number)
+}
+
+// console.log(collectNumbers(3))
+console.log(collectNumbers(9))
+
+
+
+// function collectNumbers(number, str = "") {
+//   if (number === 1) return (str + " " + 1).split(" ").map(function(val) { return Number(val) })
+//   return collectNumbers(number - 1, (str ? (str + " ") : str) + number)
+// }
+
+// console.log(collectNumbers(3))
 
 
 
