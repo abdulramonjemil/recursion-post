@@ -28,7 +28,7 @@ function deriveSolution(target, currentResult = 2, history = 2) {
 
 
 function divideSingle(dividend, divisor) {
-  return "0 rem " + (divisor - dividend)
+  return 0 + " rem " + (divisor - dividend)
 }
 
 
