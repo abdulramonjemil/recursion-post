@@ -501,9 +501,10 @@ let companyData = {
 
 // A simple linked list
 
-// let list = { value: 10 }
-// list.next = { value: 20 }
-// list.next.next = { value: 30 }
+let list = { value: 10 }
+list.next = { value: 20 }
+list.next.next = { value: 30 }
+list.next.next.next = { value: 40, next: null }
 
 
 

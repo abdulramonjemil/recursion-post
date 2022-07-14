@@ -21,6 +21,7 @@
 //   return deriveSolution(target, currentResult + 5, `(${history} + 5)`) || deriveSolution(target, currentResult * 3, `(${history} * 3)`)
 // }
 
+
 // function deriveSolution(target, currentResult = target) {
 //   if(currentResult < 2) return null
 //   if(currentResult === 2) return "2"
@@ -46,7 +47,7 @@ function deriveSolution(target, currentResult = 2) {
   return null
 }
 
-console.log(deriveSolution(12))
+// console.log(deriveSolution(12))
 
 
 function divideSingle(dividend, divisor) {
@@ -145,5 +146,74 @@ function power(base, exponent) {
   if(exponent === 0) return 1
   if(exponent === 1) return base
   return base * power(base, exponent - 1)
+}
+
+
+// function reverseList(list, next = null) {
+//   if(!list) return next
+
+//   let newList = {
+//     value: list.value,
+//     next: next
+//   }
+
+//   return reverseList(list.next, newList)
+// }
+
+
+var myList = {
+  value: 10,
+  next: {
+    value: 20,
+    next: {
+      value: 30,
+      next: {
+        value: 40,
+        next: null
+      }
+    }
+  }
+}
+
+
+// Reverse a linked list
+
+
+function reverseList(list) {
+  if(!list.next) return list
+  let newList = reverseList(list.next)
+
+}
+
+function reverseLinkedList(list) {
+  if(!list.next) return list
+  let newList = reverseLinkedList(list.next)
+  list.next.next = list
+  list.next.next.next = null
+  // list.next = null
+  return newList
+}
+
+console.log(reverseLinkedList(myList))
+
+
+var myList = {
+  value: 10,
+  next: {
+    value: 20,
+    next: null
+  }
+}
+
+
+var myList = {
+  value: 10,
+  next: {
+    value: 20,
+    next: {
+      value: 30,
+      next: null
+    }
+  }
 }
 
