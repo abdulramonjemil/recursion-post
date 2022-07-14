@@ -176,27 +176,6 @@ var myList = {
 }
 
 
-// Reverse a linked list
-
-
-function reverseList(list) {
-  if(!list.next) return list
-  let newList = reverseList(list.next)
-
-}
-
-function reverseLinkedList(list) {
-  if(!list.next) return list
-  let newList = reverseLinkedList(list.next)
-  list.next.next = list
-  list.next.next.next = null
-  // list.next = null
-  return newList
-}
-
-console.log(reverseLinkedList(myList))
-
-
 var myList = {
   value: 10,
   next: {
@@ -205,15 +184,39 @@ var myList = {
   }
 }
 
-
-var myList = {
-  value: 10,
-  next: {
-    value: 20,
-    next: {
-      value: 30,
-      next: null
-    }
-  }
+function reverseLinkedList(list) {
+  if(!list.next) return list
+  let newList = reverseLinkedList(list.next)
+  list.next.next = list
+  // list.next = null
+  // console.log(list.next.next.next)
+  // console.log(list.next)
+  console.log(list)
+  return newList
 }
+
+console.log(reverseLinkedList(myList))
+
+
+// var myList = {
+//   value: 10,
+//   next: {
+//     value: 20,
+//     next: {
+//       value: 30,
+//       next: null
+//     }
+//   }
+// }
+
+// let someval = {
+//   value: 20,
+//   next: {
+//     value: 30,
+//     next: {
+//       value: 20,
+//       next: null
+//     }
+//   }
+// }
 
