@@ -12,21 +12,46 @@
 
 
 
-function deriveSolution(target, currentResult = 2, history = 2) {
+// function deriveSolution(target, currentResult = 2, history = 2) {
+//   if(currentResult > target) return null
+
+//   let resultIsDerived = currentResult === target
+//   if(resultIsDerived) return history
+
+//   return deriveSolution(target, currentResult + 5, `(${history} + 5)`) || deriveSolution(target, currentResult * 3, `(${history} * 3)`)
+// }
+
+// function deriveSolution(target, currentResult = target) {
+//   if(currentResult < 2) return null
+//   if(currentResult === 2) return "2"
+
+//   let byMultiplyingByThree = deriveSolution(target, currentResult / 3)
+//   if(byMultiplyingByThree) return "(" + byAddingFive + " * 3)"
+
+//   let byAddingFive = deriveSolution(target, currentResult - 5)
+//   if(byAddingFive) return "(" + byAddingFive + " + 5)"
+//   return null
+// }
+
+
+function deriveSolution(target, currentResult = 2) {
   if(currentResult > target) return null
+  if(currentResult === target) return "2"
 
-  let resultIsDerived = currentResult === target
-  if(resultIsDerived) return history
+  let byMultiplyingByThree = deriveSolution(target, currentResult * 3)
+  if(byMultiplyingByThree) return "(" + byAddingFive + " * 3)"
 
-  return deriveSolution(target, currentResult + 5, `(${history} + 5)`) || deriveSolution(target, currentResult * 3, `(${history} * 3)`)
+  let byAddingFive = deriveSolution(target, currentResult + 5)
+  if(byAddingFive) return "(" + byAddingFive + " + 5)"
+  return null
 }
+
+console.log(deriveSolution(12))
 
 
 function divideSingle(dividend, divisor) {
   return 0 + " rem " + (divisor - dividend)
 }
-
-
 
 
 function divide(dividend, divisor, quotient = 0) {
@@ -62,15 +87,22 @@ function evaluateSumToTwo() {
 
 
 
-function evaluateSumTo(number) {
-  if (number === 1) return 1
-  return number + evaluateSumTo(number - 1)
+// function evaluateSumTo(number) {
+//   if (number === 1) return 1
+//   return number + evaluateSumTo(number - 1)
+// }
+
+function evaluateSumTo(number, position = 1) {
+  if(position === number) return position
+  return position + evaluateSumTo(number, position + 1)
 }
 
-function evaluateSumTo(number, sum = 0) {
-  if (number === 0) return sum
-  return evaluateSumTo(number - 1, sum + number) 
-}
+// console.log(evaluateSumTo(6))
+
+// function evaluateSumTo(number, sum = 0) {
+//   if (number === 0) return sum
+//   return evaluateSumTo(number - 1, sum + number) 
+// }
 
 
 
