@@ -1,13 +1,13 @@
 // Generating solution to the provided target only by adding 5 to 2 or multiplying it by 3 once
 
-function deriveSolution(target) {
-  let derivedByAddingFive = 2 + 5 === target
-  if(derivedByAddingFive) return "(2 + 5)"
+// function deriveSolution(target) {
+//   let derivedByAddingFive = 2 + 5 === target
+//   if(derivedByAddingFive) return "(2 + 5)"
 
-  let derivedByMultiplyingByThree = 2 * 3 === target
-  if(derivedByMultiplyingByThree) return "(2 * 3)"
-  return null
-}
+//   let derivedByMultiplyingByThree = 2 * 3 === target
+//   if(derivedByMultiplyingByThree) return "(2 * 3)"
+//   return null
+// }
 
 
 
@@ -15,16 +15,11 @@ function deriveSolution(target) {
 function deriveSolution(target, currentResult = 2, history = 2) {
   if(currentResult > target) return null
 
-  let derivedByAddingFive = currentResult + 5 === target
-  if(derivedByAddingFive) return `(${history} + 5)`
-
-  let derivedByMultiplyingByThree = currentResult * 3 === target
-  if(derivedByMultiplyingByThree) return `(${history} * 3)`
+  let resultIsDerived = currentResult === target
+  if(resultIsDerived) return history
 
   return deriveSolution(target, currentResult + 5, `(${history} + 5)`) || deriveSolution(target, currentResult * 3, `(${history} * 3)`)
 }
-
-// console.log(deriveSolution(243))
 
 
 function divideSingle(dividend, divisor) {
@@ -72,7 +67,11 @@ function evaluateSumTo(number) {
   return number + evaluateSumTo(number - 1)
 }
 
-// console.log(collectNumbers(9))
+function evaluateSumTo(number, sum = 0) {
+  if (number === 0) return sum
+  return evaluateSumTo(number - 1, sum + number) 
+}
+
 
 
 function collectNumbers(number, arr = []) {
@@ -81,7 +80,13 @@ function collectNumbers(number, arr = []) {
   return collectNumbers(number - 1, arr)
 }
 
-console.log(collectNumbers(12))
+function collectNumbers(number) {
+  if(number === 1) return [1]
+  return [number].concat(collectNumbers(number - 1))
+}
+
+
+// console.log(collectNumbers(4))
 
 
 
