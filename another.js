@@ -53,9 +53,9 @@ function fibonacciSingle() {
 
 // Return the nth fibonacci number
 
-function fibonacci(number) {
-  if(number === 1 || number === 2) return 1
-  return fibonacci(number - 2) + fibonacci(number - 1)
+function fibonacci(position) {
+  if(position === 1 || position === 2) return 1
+  return fibonacci(position - 2) + fibonacci(position - 1)
 }
 
 
@@ -67,66 +67,29 @@ function evaluateSumToTwo() {
 
 
 
-
 function evaluateSumTo(number) {
   if (number === 1) return 1
   return number + evaluateSumTo(number - 1)
 }
 
+// console.log(collectNumbers(9))
 
 
-function collectSingle() {
-  return (2 + " " + 1).split(" ").map(function (val) { return Number(val) })
+function collectNumbers(number, arr = []) {
+  if(number === 0) return arr
+  arr.push(number)
+  return collectNumbers(number - 1, arr)
 }
 
-function collectSingle3() {
-  return (3 + " " + 2 + " " + 1).split(" ").map(function (val) { return Number(val) })
+console.log(collectNumbers(12))
+
+
+
+function exportIntoArray(data, generatedArray = []) {
+  if(Array.isArray(data)) for(let employee of data) generatedArray.push(employee)
+  else for (let department of Object.values(data)) exportIntoArray(department, generatedArray)
+  return generatedArray
 }
-
-
-function collectSingle2() {
-  return [2].concat[1]
-}
-
-// function unshift(arr, val) {
-//   arr.unshift(val)
-//   return arr
-// }
-
-function collectNumbers(number) {
-  if(number === 2) return (2 + " " + 1).split(" ").map(function (val) { return Number(val) })
-
-  var arr = collectNumbers(number - 1)
-  arr.unshift(number)
-  return arr
-
-  // return unshift(collectNumbers(number - 1), number)
-}
-
-// console.log(collectNumbers(3))
-console.log(collectNumbers(9))
-
-
-
-// function collectNumbers(number, str = "") {
-//   if (number === 1) return (str + " " + 1).split(" ").map(function(val) { return Number(val) })
-//   return collectNumbers(number - 1, (str ? (str + " ") : str) + number)
-// }
-
-// console.log(collectNumbers(3))
-
-
-
-
-// Collect all the numbers from 1 to n
-
-// function collectNumbers(number) {
-//   if(number === 1) return [1]
-//   return [number].concat(collectNumbers(number - 1))
-// }
-
-// console.log(collectNumbers(5))
-
 
 
 

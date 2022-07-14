@@ -144,30 +144,30 @@
 
 // Evaluating sample company data and exporting as a csv file
 
-// let companyData = {
-//   marketing: [
-//     { name: 'John', age: 25, workHours: 40, salary: 1000 },
-//     { name: 'Jane', age: 30, workHours: 50, salary: 2000 },
-//     { name: 'Joe', age: 35, workHours: 60, salary: 3000 }
-//   ],
-//   development: {
-//     websiteDevelopment: [
-//       { name: 'Alice', age: 33, workHours: 35, salary: 1500 },
-//       { name: 'Bob', age: 40, workHours: 45, salary: 2500 },
-//       { name: 'Charlie', age: 45, workHours: 55, salary: 3500 }
-//     ],
-//     mobileDevelopment: [
-//       { name: 'Dave', age: 50, workHours: 60, salary: 4000 },
-//       { name: 'Eve', age: 55, workHours: 70, salary: 5000 },
-//       { name: 'Frank', age: 60, workHours: 80, salary: 6000 }
-//     ]
-//   },
-//   sales: [
-//     { name: 'Greg', age: 25, workHours: 40, salary: 1000 },
-//     { name: 'Helen', age: 30, workHours: 50, salary: 1200 },
-//     { name: 'Harry', age: 35, workHours: 60, salary: 1400 }
-//   ]
-// }
+let companyData = {
+  marketing: [
+    { name: 'John', age: 25, workHours: 40, salary: 1000 },
+    { name: 'Jane', age: 30, workHours: 50, salary: 2000 },
+    { name: 'Joe', age: 35, workHours: 60, salary: 3000 }
+  ],
+  development: {
+    websiteDevelopment: [
+      { name: 'Alice', age: 33, workHours: 35, salary: 1500 },
+      { name: 'Bob', age: 40, workHours: 45, salary: 2500 },
+      { name: 'Charlie', age: 45, workHours: 55, salary: 3500 }
+    ],
+    mobileDevelopment: [
+      { name: 'Dave', age: 50, workHours: 60, salary: 4000 },
+      { name: 'Eve', age: 55, workHours: 70, salary: 5000 },
+      { name: 'Frank', age: 60, workHours: 80, salary: 6000 }
+    ]
+  },
+  sales: [
+    { name: 'Greg', age: 25, workHours: 40, salary: 1000 },
+    { name: 'Helen', age: 30, workHours: 50, salary: 1200 },
+    { name: 'Harry', age: 35, workHours: 60, salary: 1400 }
+  ]
+}
 
 
 
