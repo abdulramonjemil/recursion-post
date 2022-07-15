@@ -184,31 +184,82 @@ var myList = {
 //   }
 // }
 
-// function reverseLinkedList(list) {
-//   if(!list.next) return list
-//   let newList = reverseLinkedList(list.next)
-//   list.next.next = list
-//   list.next = null
-//   return newList
-// }
-
-function insertAtEnd(initialList, value, list = initialList) {
-  if(!list.next) {
-    list.next = {
-      value: value,
-      next: null
-    }
-    return initialList
-  }
-  return insertAtEnd(initialList, value, list.next)
-}
-
 function reverseLinkedList(list) {
   if(!list.next) return list
   let newList = reverseLinkedList(list.next)
-  newList = insertAtEnd(newList, list.value)
+  // list.next.next = list
+  // list.next = null
+
+  // list.next.next = {}
+  list.next.next = list
+  list.next.next.value = list.value
+  list.next.next.next = null
+  // list = list.next
+  // console.log(list)
+
+  // newList.next = {}
+  // newList.next.value = list.value
+  // newList.next.next = null
   return newList
 }
+
+// function insertAtEnd(initialList, value, list = initialList) {
+//   if(!list.next) {
+//     list.next = {
+//       value: value,
+//       next: null
+//     }
+//     return initialList
+//   }
+//   return insertAtEnd(initialList, value, list.next)
+// }
+
+// function reverseLinkedList(list) {
+//   if(!list.next) return list
+//   let newList = reverseLinkedList(list.next)
+//   newList = insertAtEnd(newList, list.value)
+//   return newList
+// }
+
+
+
+// function reverseLinkedList(list) {
+//   if(!list.next) return list
+//   let newList = reverseLinkedList(list.next)
+//   newList.next.next = {}
+//   newList.next.next.value = list.value
+//   newList.next.next.next = null
+//   return newList
+// }
+
+// function reverseLinkedList(list) {
+//   if(!list.next) return list
+//   let newList = reverseLinkedList(list.next)
+//   newList.next = {}
+//   newList.next.value = list.value
+//   newList.next.next = null
+//   return newList
+// }
+
+
+// function reverseLinkedList(list) {
+//   // if(!list.next) return list
+//   // let newList = reverseLinkedList(list.next)
+//   list.next.next.next = {}
+//   list.next.next.next.value = list.value
+//   list.next.next.next.next = null
+//   // return newList
+// }
+
+// function reverseLinkedList(list) {
+//   // if(!list.next) return list
+//   // let newList = reverseLinkedList(list.next)
+//   list.next.next = {}
+//   list.next.next.value = list.value
+//   list.next.next.next = null
+//   // return newList
+// }
+
 
 console.log(reverseLinkedList(myList))
 
