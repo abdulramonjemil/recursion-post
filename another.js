@@ -176,22 +176,37 @@ var myList = {
 }
 
 
-var myList = {
-  value: 10,
-  next: {
-    value: 20,
-    next: null
+// var myList = {
+//   value: 10,
+//   next: {
+//     value: 20,
+//     next: null
+//   }
+// }
+
+// function reverseLinkedList(list) {
+//   if(!list.next) return list
+//   let newList = reverseLinkedList(list.next)
+//   list.next.next = list
+//   list.next = null
+//   return newList
+// }
+
+function insertAtEnd(initialList, value, list = initialList) {
+  if(!list.next) {
+    list.next = {
+      value: value,
+      next: null
+    }
+    return initialList
   }
+  return insertAtEnd(initialList, value, list.next)
 }
 
 function reverseLinkedList(list) {
   if(!list.next) return list
   let newList = reverseLinkedList(list.next)
-  list.next.next = list
-  // list.next = null
-  // console.log(list.next.next.next)
-  // console.log(list.next)
-  console.log(list)
+  newList = insertAtEnd(newList, list.value)
   return newList
 }
 
