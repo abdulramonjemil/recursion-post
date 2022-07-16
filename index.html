@@ -12,9 +12,22 @@
   
   <h1>Working with recursion in JavaScript. A detailed example</h1>
 
-  <!-- Load the loader file and the playground file -->
+
+  
+  <!--
+    The script tag below loads the loader file. For more info,
+    check the comment at the top of the load.js file (in the current folder).
+    If you need to run any random code which needs to reference
+    anything in any of the files loaded by the loader file,
+    use the script.js file in the current folder, which is loaded below.
+    You might need to adjust the timeout based on your computer speed.
+  -->
+
   <script src="./load.js"></script>
-  <script src="./script.js"></script>
+  <script>
+    setTimeout( function() { loadScript("./script.js") }, 50)
+  </script>
 
 </body>
 </html>
+

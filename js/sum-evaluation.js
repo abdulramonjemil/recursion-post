@@ -1,8 +1,3 @@
-
-
-
-
-
 // Sum of arithmetic progression (using a for loop)
 
 // function evaluateSumTo(number) {
@@ -18,13 +13,11 @@
 
 
 
-
 // Simple sum of arithmetic progression from 1 up to 2
 
 // function evaluateSumToTwo() {
 //   return 2 + 1
 // }
-
 
 
 
@@ -93,3 +86,5 @@ function evaluateSumTo(number, position = 1) {
 //   if (number === 0) return sum
 //   return evaluateSumTo(number - 1, sum + number) 
 // }
+
+
