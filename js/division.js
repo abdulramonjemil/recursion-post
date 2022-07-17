@@ -56,7 +56,8 @@ function divideReversed(dividend, divisor, quotient = 0, newDivisor = divisor) {
 
 
 /**
- * Avoid passing fixed parameters
+ * Avoid passing fixed parameters, and prevent function
+ * caller from changing default parameters.
  */
 
 function divideReversed2(dividend, divisor) {
@@ -67,6 +68,6 @@ function divideReversed2(dividend, divisor) {
   return doDivide(0, divisor)
 }
 
-console.log(divideReversed2(50, 7))
-console.log(divideReversed2(53, 8))
+// console.log(divideReversed2(50, 7))
+// console.log(divideReversed2(53, 8))
 

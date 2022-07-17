@@ -1,6 +1,14 @@
 /**
+ * This file contains different recursive implementations for traversing
+ * a complex data structure and exporting values in them into an array.
+ * PS: File may also contain non-recursive implementations and bonus code.
+ */
+
+
+
+/**
  * This is a sample object for working with data structure
- * traversals with recursion (used with another file)
+ * traversals with recursion
  */
 
  let companyData = {
@@ -29,67 +37,9 @@
 }
 
 
-
-
-// Exporting into an array - using a loop
-
-// function exportIntoArray(data) {
-//   let departmentsAsArray = []
-//   for (let department of Object.values(data)) {
-//     if (Array.isArray(department)) {
-//       for ( let employee of department) {
-//         departmentsAsArray.push(employee)
-//       }
-//     } else {
-//       for (let subDepartment of Object.values(department)) {
-//         for (let employee of subDepartment) {
-//           departmentsAsArray.push(employee)
-//         }
-//       }
-//     }
-//   }
-//   return departmentsAsArray
-// }
-
-// let departmentsAsArray = exportIntoArray(companyData)
-// console.log(departmentsAsArray)
-
-
-
-
-// Simple exportation of employee data into an array
-
-// function exportIntoArray(data) {
-//   let generatedArray = []
-//   for (let department of Object.values(data)) {
-//     for (let employee of department) {
-//       generatedArray.push(employee)
-//     }
-//   }
-//   return generatedArray
-// }
-
-
-
-
-// Exporting into an array - using a recursive implementation without nesting functions
-
-// function exportIntoArray(data, generatedArray = []) {
-//   if (Array.isArray(data)) {
-//     for (let employee of data) {
-//       generatedArray.push(employee)
-//     }
-//   } else {
-//     for (let department of Object.values(data)) {
-//       exportIntoArray(department, generatedArray)
-//     }
-//   }
-//   return generatedArray
-// }
-
-// console.log(exportIntoArray(companyData))
-
-
+/**
+ * Export data contained in an object into an array.
+ */
 
 function exportIntoArray(data, generatedArray = []) {
   if(Array.isArray(data)) for(let employee of data) generatedArray.push(employee)
@@ -97,83 +47,85 @@ function exportIntoArray(data, generatedArray = []) {
   return generatedArray
 }
 
-
-// Exporting into array (another implementation)
-
-// function exportIntoArray(data, generatedArray = []) {
-//   if(data.name) generatedArray.push(data)
-//   else if(Array.isArray(data)) for(let employee of data) exportIntoArray(employee, generatedArray)
-//   else for (let department of Object.values(data)) exportIntoArray(department, generatedArray)
-//   return generatedArray
-// }
-
-
-
-
-// Exporting into an array - using a recursive implementation - nesting functions
-
-// function exportIntoArray(data, generatedArray = []) {
-//   function generateArray(newData) {
-//     if (Array.isArray(newData)) {
-//       for (let employee of newData) {
-//         generatedArray.push(employee)
-//       }
-//     } else {
-//       for (let department of Object.values(newData)) {
-//         generateArray(department)
-//       }
-//     }
-//   }
-
-//   generateArray(data)
-//   return generatedArray
-// }
-
 // console.log(exportIntoArray(companyData))
 
 
 
 
-// Exporting the generatedArray into a csv file
+/**
+ * Export data into array, going deeper into the data structure.
+ */
 
-// function exportToCSV(generatedArray) {
+function exportIntoArray2(data, generatedArray = []) {
+  if(data.name) generatedArray.push(data)
+  else if(Array.isArray(data)) for(let employee of data) exportIntoArray2(employee, generatedArray)
+  else for (let department of Object.values(data)) exportIntoArray2(department, generatedArray)
+  return generatedArray
+}
 
-//   let [ workHourSum, salarySum ] = [0, 0]
-//   generatedArray.forEach(function(employee) {
-//     workHourSum += employee.workHours
-//     salarySum += employee.salary
-//   })
-//   generatedArray.push({
-//     name: "",
-//     age: "",
-//     workHours: workHourSum,
-//     salary: salarySum
-//   })
+// console.log(exportIntoArray2(companyData))
 
-//   let headerRow = { name: 'Name', age: 'Age', workHours: 'Work Hours', salary: 'Salary' }
-//   generatedArray.unshift(headerRow)
 
-  // let csvContent = "data:text/csv;charset=utf-8," + generatedArray.map(row => row.name + "," + row.age + "," + row.workHours + "," + row.salary).join('\n')
 
-//   return encodeURI(csvContent)
-// }
+/**
+ * Prevent function caller from changing default value of generated array,
+ * access generated array from one source, and avoid returning the array multiple times.
+ */
 
+function exportIntoArray3(data) {
+  let generatedArray = []
+  function generateArray(data) {
+    if(Array.isArray(data)) for(let employee of data) generatedArray.push(employee)
+    else for (let department of Object.values(data)) generateArray(department)
+  }
+  generateArray(data)
+  return generatedArray
+}
+
+// console.log(exportIntoArray3(companyData))
+
+
+
+/**
+ * Bonus code: export the generated array into a csv file
+ */
+
+function exportToCSV(generatedArray) {
+  let [ workHourSum, salarySum ] = [0, 0]
+  generatedArray.forEach(function(employee) {
+    workHourSum += employee.workHours
+    salarySum += employee.salary
+  })
+  generatedArray.push({
+    name: "",
+    age: "",
+    workHours: workHourSum,
+    salary: salarySum
+  })
+  
+  let headerRow = { name: 'Name', age: 'Age', workHours: 'Work Hours', salary: 'Salary' }
+  generatedArray.unshift(headerRow)
+  let csvContent = "data:text/csv;charset=utf-8," + generatedArray.map(row => row.name + "," + row.age + "," + row.workHours + "," + row.salary).join('\n')
+  return encodeURI(csvContent)
+}
+
+// console.log(exportToCSV(exportIntoArray(companyData)))
+
+
+
+/**
+ * Download the csv file
+ */
+
+function downloadFile(file) {
+  let fileLink = document.createElement("a")
+  fileLink.setAttribute("href", file)
+  fileLink.setAttribute("download", "employee-data.csv")
+  document.body.appendChild(fileLink) // Might be needed in some browsers
+  fileLink.click()
+}
+
+// let departmentsAsArray = exportIntoArray(companyData)
 // let exportedCSV = exportToCSV(departmentsAsArray)
-// console.log(exportedCSV)
-
-
-
-
-// Downloading the csv file
-
-// function downloadFile(file) {
-//   let link = document.createElement("a")
-//   link.setAttribute("href", file)
-//   link.setAttribute("download", "employee-data.csv")
-//   document.body.appendChild(link)
-//   link.click()
-// }
-
 // downloadFile(exportedCSV)
-
 
