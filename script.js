@@ -4,6 +4,8 @@
  * You can also reference all variables and functions defined in those files
  */
 
-
-console.log("\nRun your random code here")
+console.log("\n")
+console.log("\n")
+console.log("\n")
+console.log("Run your random code here")
 

@@ -48,23 +48,6 @@ function power3(base, exponent, calculated = 1) {
 
 
 /**
- * Avoid passing the same fixed parameters.
- */
-
-function power5(base, exponent) {
-  function getPower(exponent) {
-    if(exponent === 0) return 1
-    if(exponent === 1) return base
-    return base * getPower(exponent - 1)
-  }
-  return getPower(exponent)
-}
-
-// console.log(power5(5, 3))
-
-
-
-/**
  * Avoid passing the same fixed parameters, and prevent
  * function caller from changing default parameter.
  */
@@ -79,6 +62,23 @@ function power4(base, exponent) {
 }
 
 // console.log(power4(3, 3))
+
+
+
+/**
+ * Avoid passing the same fixed parameters.
+ */
+
+function power5(base, exponent) {
+  function getPower(exponent) {
+    if(exponent === 0) return 1
+    if(exponent === 1) return base
+    return base * getPower(exponent - 1)
+  }
+  return getPower(exponent)
+}
+
+// console.log(power5(5, 3))
 
 
 
