@@ -1,4 +1,4 @@
-# Sample recursive functions in JavaScript
+# JS Recursion
 
 I created this repository to provide beginners and intermediates in JavaScript with examples where recursion is used to solve practical problems. The files in it contain different recursive functions, most of which do just the same thing.
 
