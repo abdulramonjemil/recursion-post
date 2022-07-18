@@ -1,6 +1,6 @@
 /**
  * This file contains different recursive implementations for generating natural powers
- * PS: File may contain non-recursive implementations too.
+ * PS: File may contain non-recursive implementations.
  */
 
 
